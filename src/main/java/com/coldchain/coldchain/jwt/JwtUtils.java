@@ -28,8 +28,18 @@ public class JwtUtils {
     @Value("${spring.app.jwtExpirationMs}")
     private int jwtExpirationMs;
 
-    public String generateTokenFromUsername(User userDetail) {
-        String username = userDetail.getUsername();
+//    public String generateTokenFromUsername(User userDetail) {
+//        String username = userDetail.getUsername();
+//        return Jwts.builder()
+//                .subject(username)
+//                .issuedAt(new Date())
+//                .expiration(new Date((new Date()).getTime() + jwtExpirationMs))
+//                .signWith(key())
+//                .compact();
+//
+//    }
+
+    public String generateTokenFromUsername(String username) {
         return Jwts.builder()
                 .subject(username)
                 .issuedAt(new Date())

@@ -49,7 +49,7 @@ public class SecurityConfig {
         http.cors(Customizer.withDefaults())
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth ->
-                        auth.requestMatchers("/login", "/api/registeruser").permitAll()
+                        auth.requestMatchers("/api/users/login", "/api/users/register", "api/users/verify").permitAll()
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
